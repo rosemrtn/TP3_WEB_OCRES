@@ -7,7 +7,7 @@ function start() {
 
   apiWeather
     .fetchTodayForecast()
-    .then(function(response) {
+    .then(function (response) {
       // Récupère la donnée d'une API
       const data = response.data;
 
@@ -22,10 +22,18 @@ function start() {
       document.getElementById('today-forecast-more-info').innerHTML = description;
       document.getElementById('icon-weather-container').innerHTML = icon;
       document.getElementById('today-forecast-temp').innerHTML = `${temp}°C`;
-      
+
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // Affiche une erreur
       console.error(error);
     });
+}
+
+function getValue() {
+  // Sélectionner l'élément input et récupérer sa valeur
+  var ville = document.getElementById("city-input").value;
+  // Afficher la valeur
+  //alert(ville);
+  console.log("ma ville est ", ville);
 }
