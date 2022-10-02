@@ -17,16 +17,6 @@ class API_WEATHER {
     this.city = city;
   }
 
-  setCity(ville) {
-    this.city = ville;
-    alert(city);
-  }
-
-  getCity() {
-    return this.city;
-    alert("ueueu");
-  }
-
   // Faire la requete à l'API openweathermap
   // Retourne une promise
   fetchTodayForecast() {
@@ -35,6 +25,15 @@ class API_WEATHER {
         crossdomain: true
       })
   }
+
+  getThreeDayForecast() {
+    return axios
+      .get(`${API_URL}?lat=${lat}&lon=${lon}&cnt=3&appid=${API_KEY}`, {
+        //api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}
+        crossdomain: true
+      })
+  }
+
   // Retourne l'element HTML de l'icon symbolisant la méteo.
   getHTMLElementFromIcon(icon) {
     return `<img src=${API_URL_ICON}${icon}@2x.png class="weather-icon"/>`

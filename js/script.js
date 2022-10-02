@@ -24,6 +24,7 @@ function start(city) {
       document.getElementById('today-forecast-temp').innerHTML = `${temp}°C`;
 
     })
+    .getThreeDayForecast()
     .catch(function (error) {
       // Affiche une erreur
       console.error(error);
